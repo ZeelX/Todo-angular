@@ -8,22 +8,9 @@ import {TodoServiceService} from "../../service/todo-service.service";
   templateUrl: './tableau.component.html',
   styleUrls: ['./tableau.component.scss']
 })
-export class TableauComponent{
+export class TableauComponent {
 
-    private _listTodo: Array<string>;
 
-  constructor(what: string, when: string) {
-
-    this._listTodo = [];
+  constructor(public todoService: TodoServiceService) {
   }
-
-  get listTodo(): Array<string> {
-    return this._listTodo;
-  }
-
-  set listTodo(value: Array<string>) {
-    this._listTodo = value;
-  }
-
-
 }

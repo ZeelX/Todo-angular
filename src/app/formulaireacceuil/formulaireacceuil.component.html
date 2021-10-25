@@ -1,10 +1,10 @@
-<div class="d-flex flex-row-reverse mx-5 my-1">
+<div class="d-flex justify-content-center mx-5">
 <a class="btn btn-success" routerLink="/tableau">Retour au tableau</a>
 </div>
 <div class="text-center">
 
 
-  <div class="container-fluid contain vh-100 d-flex justify-content-center">
+  <div class="container-fluid contain vh-99">
     <main class="form-signin">
 
 
@@ -15,19 +15,24 @@
 
 
       <form (ngSubmit)="onSubmit()" #formTodo="ngForm">
+        <div class="row">
+          <div class="input-group">
 
-        <div class="input-group">
-          <div class="form-floating">
+            <div class="col-12">
+            <label for="inputTodoWhat">Something to do?  </label>
+            </div>
+            <div class="col-12">
             <input  [(ngModel)]="todo.what"
                     [name]="'nickname'"
                     #inputTodoWhat="ngModel"
                     id="inputTodoWhat"
                     [class.is-invalid]="inputTodoWhat.touched && inputTodoWhat.invalid"
                     type="text"
+                    placeholder="Go buy chocolate!"
                     class="form-control"
                     required
             >
-            <label for="inputTodoWhat">Something to do</label>
+            </div>
           </div>
             <div *ngIf="inputTodoWhat.invalid && (inputTodoWhat.dirty || inputTodoWhat.touched)"
                  class="p-2 ms-2 col-5 alert-danger"
@@ -38,29 +43,23 @@
             </div>
         </div>
 
-
-
-
-        <div class="form-floating">
-          <input type="when" class="form-control" id="floatingPassword">
-          <label for="floatingPassword">Date</label>
-        </div>
-
-
-
-
-        <div class="input-group">
-          <div class="form-floating">
+        <div class="row">
+          <div class="input-group">
+            <div class="col-12">
+            <label for="inputTodoWhen">When?  </label>
+            </div>
+            <div class="col-12">
             <input  [(ngModel)]="todo.when"
                     [name]="'quand'"
                     #inputTodoWhen="ngModel"
                     id="inputTodoWhen"
                     [class.is-invalid]="inputTodoWhen.touched && inputTodoWhen.invalid"
                     type="text"
+                    placeholder="... Tomorrow ?"
                     class="form-control"
                     required
             >
-            <label for="inputTodoWhen">Something to do</label>
+          </div>
           </div>
           <div *ngIf="inputTodoWhen.invalid && (inputTodoWhen.dirty || inputTodoWhen.touched)"
                class="p-2 ms-2 col-5 alert-danger"

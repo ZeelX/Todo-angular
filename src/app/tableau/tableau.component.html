@@ -1,14 +1,50 @@
-<div class="d-flex flex-row-reverse mx-5 my-1">
+<div class=" classBtn d-flex justify-content-center mx-5">
 <a class="btn btn-success" routerLink="/formulaire">Ajouter des To Do's</a>
 </div>
 
 
-<div class="container-fluid">
 
-  <table>
-    <tr *ngFor="let todo of _listTodo">
-      <td> {{todo.what}} </td> <td> {{todo.when}} </td>
-    </tr>
-  </table>
 
-</div>
+
+  <div class="row">
+     <div class="col-8 offset-2">
+        <table class="table table-light">
+           <thead>
+             <tr class="row">
+                <th class="col-6"> Tâche </th>
+                <th class="col-6"> DeadLine </th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr class="row" *ngFor="let todo of todoService.arrayTodo">
+               <td class="col-6 form-floating"> <input  [(ngModel)]="todo.what"
+                                                   [name]="'nickname'"
+                                                   #inputTodoWhat="ngModel"
+                                                   id="inputTodoWhat"
+                                                   [class.is-invalid]="inputTodoWhat.touched && inputTodoWhat.invalid"
+                                                   type="text"
+                                                   placeholder="{{todo.what}}"
+                                                   class="form-control"
+                                                   required
+                                                >
+               </td>
+
+
+               <td class="col-6 form-floating"> <input  [(ngModel)]="todo.when"
+                                                   [name]="'quand'"
+                                                   #inputTodoWhen="ngModel"
+                                                   id="inputTodoWhen"
+                                                   [class.is-invalid]="inputTodoWhen.touched && inputTodoWhen.invalid"
+                                                   type="text"
+                                                   placeholder="{{todo.when}}"
+                                                   class="form-control"
+                                                   required
+                                                >
+               </td>
+             </tr>
+           </tbody>
+        </table>
+     </div>
+
+  </div>
+
