@@ -1,0 +1,14 @@
+<div class="d-flex flex-row-reverse mx-5 my-1">
+<a class="btn btn-success" routerLink="/formulaire">Ajouter des To Do's</a>
+</div>
+
+
+<div class="container-fluid">
+
+  <table>
+    <tr *ngFor="let todo of _listTodo">
+      <td> {{todo.what}} </td> <td> {{todo.when}} </td>
+    </tr>
+  </table>
+
+</div>

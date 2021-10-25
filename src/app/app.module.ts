@@ -3,12 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormulaireacceuilComponent } from './formulaireacceuil/formulaireacceuil.component';
+import { TodoForm} from './formulaireacceuil/formulaireacceuil.component';
+import { TableauComponent } from './tableau/tableau.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormulaireacceuilComponent
+    TodoForm,
+    TableauComponent
   ],
   imports: [
     BrowserModule,
