@@ -10,13 +10,25 @@ import {TodoServiceService} from "../../service/todo-service.service";
 })
 export class TableauComponent {
 
-
-  constructor(public todoService: TodoServiceService,private localStorageService: LocalStorageService) {
+// a rajouter dans le constructor
+  constructor(public todoService: TodoServiceService,) {
   }
 
-  
 
-  persist(key: string, value: any) {
-    this.localStorageService.set(key, value);
+  // public getControl($event:
+  // , key: string): FormControl
+  // {
+  //   return (formGroup as FormGroup).get(key) as FormControl;
+  // }
+
+
+  getValue(event: Event): string {
+    return (event.target as HTMLInputElement).value;
+  }
+
+
+  removeTodo(i: number): void {
+    this.todoService.arrayTodo.splice(i,1);
+
   }
 }

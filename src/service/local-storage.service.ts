@@ -20,6 +20,10 @@ export class LocalStorageService {
     }
     return false;
   }
+  get isLocalStorageSupported(): boolean {
+    return !!this.localStorage
+  }
+
   remove(key: string): boolean {
     if (this.isLocalStorageSupported) {
       this.localStorage.removeItem(key);
@@ -27,7 +31,5 @@ export class LocalStorageService {
     }
     return false;
   }
-  get isLocalStorageSupported(): boolean {
-    return !!this.localStorage
-  }
+
 }

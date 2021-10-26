@@ -1,13 +1,3 @@
-<div class=" classBtn d-flex justify-content-center mx-5">
-<a class="btn btn-success" routerLink="/formulaire">Ajouter des To Do's</a>
-</div>
-
-
-
-
-
-  <div class="row">
-     <div class="col-8 offset-2">
         <table class="table table-light">
            <thead>
              <tr class="row">
@@ -16,36 +6,46 @@
              </tr>
            </thead>
            <tbody>
-             <tr class="row" *ngFor="let todo of todoService.arrayTodo">
-               <td class="col-6 form-floating"> <input  [(ngModel)]="todo.what"
-                                                   [name]="'nickname'"
-                                                   #inputTodoWhat="ngModel"
+             <tr class="row" *ngFor="let row of todoService.arrayTodo; let i = index">
+
+               <td class="checkbox mb-3">
+                 <label>
+                   <input type="checkbox" value="finished"> Done
+                 </label>
+               </td>
+               <td class="col-5 form-floating"> <input  [(ngModel)]="row.what"
+                                                   [name]="'nickname2'"
+                                                   #inputTodoWhat2="ngModel"
                                                    id="inputTodoWhat"
-                                                   [class.is-invalid]="inputTodoWhat.touched && inputTodoWhat.invalid"
-                                                   (input)="persist('test',$event.target.value)"
+                                                   [class.is-invalid]="inputTodoWhat2.touched && inputTodoWhat2.invalid"
+
                                                    type="text"
-                                                   placeholder="{{todo.what}}"
+                                                   placeholder="{{row.what}}"
+                                                   class="form-control"
+                                                   required
+                                                >
+               </td>
+               <td class="col-5 form-floating"> <input  [(ngModel)]="row.when"
+                                                   [name]="'quand2'"
+                                                   #inputTodoWhen2="ngModel"
+                                                   id="inputTodoWhen"
+                                                   [class.is-invalid]="inputTodoWhen2.touched && inputTodoWhen2.invalid"
+
+                                                   type="date"
+                                                   placeholder="{{row.when}}"
                                                    class="form-control"
                                                    required
                                                 >
                </td>
 
+               <td class="checkbox col-2">
+                 <label>
+                   <button (click)="removeTodo(i)" class="btn btn-danger p-3"> X </button>
 
-               <td class="col-6 form-floating"> <input  [(ngModel)]="todo.when"
-                                                   [name]="'quand'"
-                                                   #inputTodoWhen="ngModel"
-                                                   id="inputTodoWhen"
-                                                   [class.is-invalid]="inputTodoWhen.touched && inputTodoWhen.invalid"
-                                                   type="text"
-                                                   placeholder="{{todo.when}}"
-                                                   class="form-control"
-                                                   required
-                                                >
+                 </label>
                </td>
              </tr>
            </tbody>
         </table>
-     </div>
 
-  </div>
 

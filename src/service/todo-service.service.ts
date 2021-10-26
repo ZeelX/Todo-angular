@@ -6,7 +6,8 @@ import {Todo} from "../models/todo";
 })
 export class TodoServiceService {
 
-  private _arrayTodo: Array<Todo> = [];
+  public _arrayTodo: Array<Todo> = [];
+
 
 
   get arrayTodo(): Array<Todo> {
@@ -15,6 +16,10 @@ export class TodoServiceService {
 
   addTodo(todo: Todo): void {
     this._arrayTodo.push(todo);
+  }
+
+  updateArray():void{
+
   }
 
 }

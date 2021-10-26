@@ -1,19 +1,9 @@
-<div class="d-flex justify-content-center mx-5">
-<a class="btn btn-success" routerLink="/tableau">Retour au tableau</a>
-</div>
-<div class="text-center">
-
-
-  <div class="container-fluid contain vh-99">
-    <main class="form-signin">
 
 
 
 
-        <img class="mb-4" src="../assets/img/postit.png" alt="" width="120" height="120">
-        <h1 class="h3 mb-3 fw-normal">To-do List</h1>
 
-
+<!-- <input type="text" (input)="persist('test', $event.target.value)">   // bout de code du persist() -->
       <form (ngSubmit)="onSubmit()" #formTodo="ngForm">
         <div class="row">
           <div class="input-group">
@@ -23,10 +13,11 @@
             </div>
             <div class="col-12">
             <input  [(ngModel)]="todo.what"
-                    [name]="'nickname'"
+                    [name]="'what'"
                     #inputTodoWhat="ngModel"
                     id="inputTodoWhat"
                     [class.is-invalid]="inputTodoWhat.touched && inputTodoWhat.invalid"
+
                     type="text"
                     placeholder="Go buy chocolate!"
                     class="form-control"
@@ -50,14 +41,14 @@
             </div>
             <div class="col-12">
             <input  [(ngModel)]="todo.when"
-                    [name]="'quand'"
+                    [name]="'when'"
                     #inputTodoWhen="ngModel"
                     id="inputTodoWhen"
                     [class.is-invalid]="inputTodoWhen.touched && inputTodoWhen.invalid"
-                    type="text"
+                    type="date"
                     placeholder="... Tomorrow ?"
                     class="form-control"
-                    required
+
             >
           </div>
           </div>
@@ -72,21 +63,11 @@
 
         <div class="checkbox mb-3">
           <label>
-            <input type="checkbox" value="finished"> Done ?
+            <input type="checkbox" value="finished"> Done?
           </label>
         </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Add TODO</button>
+        <button class="w-100 btn btn-lg btn-primary" type="submit" >Add TODO</button>
       </form>
-    </main>
-  </div>
-
-
-  <div class="container-fluid bg-black bg-opacity-10">
-    <div class="w-100 h-50"></div>
-
-
-  </div>
-</div>
 
 
 
