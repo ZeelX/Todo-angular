@@ -1,5 +1,5 @@
 import {Component, inject, Inject, OnInit} from '@angular/core';
-import { TodoForm} from "../formulaireacceuil/formulaireacceuil.component";
+import {LocalStorageService} from "../../service/local-storage.service";
 import {TodoServiceService} from "../../service/todo-service.service";
 
 
@@ -11,6 +11,12 @@ import {TodoServiceService} from "../../service/todo-service.service";
 export class TableauComponent {
 
 
-  constructor(public todoService: TodoServiceService) {
+  constructor(public todoService: TodoServiceService,private localStorageService: LocalStorageService) {
+  }
+
+  
+
+  persist(key: string, value: any) {
+    this.localStorageService.set(key, value);
   }
 }
